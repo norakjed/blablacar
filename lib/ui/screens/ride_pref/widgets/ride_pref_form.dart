@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
  
-import '../../../model/ride/locations.dart';
-import '../../../model/ride_pref/ride_pref.dart';
+import '../../../../model/ride/locations.dart';
+import '../../../../model/ride_pref/ride_pref.dart';
  
 ///
 /// A Ride Preference From is a view to select:
