@@ -2,9 +2,11 @@ import 'package:blablacaar/ui/theme/theme.dart';
 import 'package:blablacaar/ui/widgets/actions/bla_button.dart';
 import 'package:blablacaar/ui/widgets/actions/bla_switch_button.dart';
 import 'package:blablacaar/ui/widgets/display/bla_divider.dart';
+import 'package:blablacaar/ui/widgets/display/bla_location_picker.dart';
 import 'package:blablacaar/ui/widgets/inputs/bla_date_input.dart';
 import 'package:blablacaar/ui/widgets/inputs/bla_location_input.dart';
 import 'package:blablacaar/ui/widgets/inputs/bla_seat_input.dart';
+import 'package:blablacaar/utils/animations_util.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../model/ride/locations.dart';
@@ -80,7 +82,20 @@ class _RidePrefFormState extends State<RidePrefForm> {
           BlaLocationInput(
             location: departure,
             type: LocationType.departure,
-            onTap: () {},
+            onTap: () async {
+              final selected = await Navigator.push<Location>(
+                context,
+                AnimationUtils.createBottomToTopRoute(
+                  const LocationPickerScreen(),
+                ),
+              );
+
+              if (selected != null) {
+                setState(() {
+                  departure = selected;
+                });
+              }
+            },
           ),
 
           BlaDivider(),
@@ -90,7 +105,20 @@ class _RidePrefFormState extends State<RidePrefForm> {
             location: arrival,
             type: LocationType.arrival,
             switchIcon: BlaSwitchButton(onTap: onSwitch),
-            onTap: () {},
+            onTap: () async {
+              final selected = await Navigator.push<Location>(
+                context,
+                AnimationUtils.createBottomToTopRoute(
+                  const LocationPickerScreen(),
+                ),
+              );
+
+              if (selected != null) {
+                setState(() {
+                  arrival = selected;
+                });
+              }
+            },
           ),
 
           BlaDivider(),
