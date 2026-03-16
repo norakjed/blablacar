@@ -5,6 +5,7 @@ import 'package:blablacaar/data/repositories/ride/ride_repository_mock.dart';
 import 'package:blablacaar/data/repositories/ride_preference/ride_preference_repository.dart';
 import 'package:blablacaar/data/repositories/ride_preference/ride_preference_repository_mock.dart';
 import 'package:blablacaar/main_common.dart';
+import 'package:blablacaar/ui/states/ride_preference_state.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -19,6 +20,12 @@ List<SingleChildWidget> get devProviders {
     // Ride preferences repository
     Provider<RidePreferencesRepository>(
       create: (_) => RidePreferencesRepositoryMock(),
+    ),
+
+    // Ride preference global state
+    ChangeNotifierProvider<RidePreferenceState>(
+      create: (_) =>
+          RidePreferenceState(repository: RidePreferencesRepositoryMock()),
     ),
   ];
 }

@@ -1,3 +1,5 @@
+import 'package:blablacaar/model/ride_pref/ride_pref.dart';
+import 'package:blablacaar/ui/states/ride_preference_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -13,6 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen());
   }
 }
