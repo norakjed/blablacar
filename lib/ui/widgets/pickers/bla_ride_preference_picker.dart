@@ -51,10 +51,11 @@ class _BlaRidePreferencePickerState extends State<BlaRidePreferencePicker> {
   }
 
   @override
-  // TODO  - This kind of update should not be usefull with states watch () !!
   void didUpdateWidget(BlaRidePreferencePicker w) {
     super.didUpdateWidget(w);
-    init();
+    if (widget.initRidePreference != w.initRidePreference) {  // only reset if the preference changed
+      init();                         
+    }
   }
 
   void init() {
